@@ -20,13 +20,13 @@ export function ColorSwatch({ color, onCopy, index }: Props) {
       title={`Copy ${color.hex}`}
     >
       <div
-        className="w-full aspect-square rounded-2xl shadow-lg transition-shadow duration-200 group-hover:shadow-xl"
-        style={{ backgroundColor: color.hex, minHeight: 80 }}
+        className="w-full aspect-square rounded-2xl shadow-lg transition-shadow duration-200 group-hover:shadow-xl min-h-20"
+        style={{ backgroundColor: color.hex }}
       />
       <div className="text-center">
-        <p className="text-xs font-medium" style={{ color: '#f0f0f0' }}>{color.name}</p>
-        <p className="text-xs font-mono mt-0.5" style={{ color: '#6b7280' }}>{color.hex}</p>
-        <p className="text-xs mt-0.5" style={{ color: '#6b7280' }}>{color.role}</p>
+        <p className="text-xs font-medium text-text">{color.name}</p>
+        <p className="text-xs font-mono mt-0.5 text-muted">{color.hex}</p>
+        <p className="text-xs mt-0.5 text-muted">{color.role}</p>
       </div>
     </motion.button>
   )

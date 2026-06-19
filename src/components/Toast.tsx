@@ -18,8 +18,8 @@ export function Toast({ toasts, onRemove }: Props) {
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
             onClick={() => onRemove(toast.id)}
-            className="glass rounded-xl px-4 py-3 text-sm font-medium pointer-events-auto cursor-pointer"
-            style={{ color: '#62C688', borderColor: 'rgba(98,198,136,0.3)' }}
+            className="glass rounded-xl px-4 py-3 text-sm font-medium pointer-events-auto cursor-pointer text-green"
+            style={{ borderColor: 'rgba(98,198,136,0.3)' }}
           >
             ✓ {toast.message}
           </motion.div>

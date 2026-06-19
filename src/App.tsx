@@ -38,19 +38,14 @@ function App() {
                   className="glass rounded-xl p-4 flex items-center justify-between gap-4"
                   style={{ borderColor: 'rgba(255,107,43,0.3)' }}
                 >
-                  <p className="text-sm" style={{ color: '#FF6B2B' }}>
+                  <p className="text-sm text-accent">
                     {errorMessage.includes('rate') || errorMessage.includes('limit')
                       ? "You've generated a few brands already! Wait a minute and try again. ☕"
                       : errorMessage}
                   </p>
                   <button
                     onClick={reset}
-                    className="shrink-0 text-xs px-3 py-1.5 rounded-lg font-medium"
-                    style={{
-                      background: 'rgba(255,107,43,0.15)',
-                      color: '#FF6B2B',
-                      border: '1px solid rgba(255,107,43,0.3)',
-                    }}
+                    className="shrink-0 text-xs px-3 py-1.5 rounded-lg font-medium bg-accent/15 text-accent border border-accent/30"
                   >
                     Try again
                   </button>
@@ -62,9 +57,7 @@ function App() {
         {status === 'loading' && (
           <div key="loading">
             <header className="px-4 py-6">
-              <span style={{ color: '#FF6B2B', fontFamily: '"Instrument Serif", serif', fontSize: '1.5rem' }}>
-                Palet
-              </span>
+              <span className="text-2xl text-accent font-serif">Palet</span>
             </header>
             <SkeletonLoader />
           </div>

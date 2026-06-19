@@ -35,10 +35,7 @@ function Section({ children, index, className = '' }: { children: React.ReactNod
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
-    <h2
-      className="text-xl mb-4"
-      style={{ color: '#f0f0f0', fontFamily: '"Instrument Serif", serif', fontWeight: 400 }}
-    >
+    <h2 className="text-xl mb-4 text-text font-serif font-normal">
       {children}
     </h2>
   )
@@ -58,13 +55,8 @@ export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props)
         animate={{ opacity: 1, y: 0 }}
         className="text-center py-4"
       >
-        <p className="text-sm mb-1" style={{ color: '#6b7280' }}>Your brand identity is ready</p>
-        <h1
-          className="text-3xl"
-          style={{ color: '#FF6B2B', fontFamily: '"Instrument Serif", serif', fontWeight: 400 }}
-        >
-          Palet
-        </h1>
+        <p className="text-sm mb-1 text-muted">Your brand identity is ready</p>
+        <h1 className="text-3xl text-accent font-serif font-normal">Palet</h1>
       </motion.div>
 
       {/* Personality */}
@@ -74,18 +66,13 @@ export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props)
           {kit.personality.traits.map(trait => (
             <span
               key={trait}
-              className="px-3 py-1 rounded-full text-sm font-medium"
-              style={{
-                background: 'rgba(255,107,43,0.15)',
-                color: '#FF6B2B',
-                border: '1px solid rgba(255,107,43,0.3)',
-              }}
+              className="px-3 py-1 rounded-full text-sm font-medium bg-accent/15 text-accent border border-accent/30"
             >
               {trait}
             </span>
           ))}
         </div>
-        <p className="text-sm leading-relaxed" style={{ color: '#6b7280' }}>
+        <p className="text-sm leading-relaxed text-muted">
           {kit.personality.toneDescription}
         </p>
       </Section>
@@ -99,11 +86,11 @@ export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props)
               key={color.hex}
               color={color}
               index={i}
-              onCopy={(hex) => onCopy(hex)}
+              onCopy={onCopy}
             />
           ))}
         </div>
-        <p className="text-xs mt-3" style={{ color: '#6b7280' }}>Click any swatch to copy the hex code</p>
+        <p className="text-xs mt-3 text-muted">Click any swatch to copy the hex code</p>
       </Section>
 
       {/* Typography */}
@@ -111,24 +98,15 @@ export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props)
         <SectionTitle>Typography</SectionTitle>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-4">
           <div>
-            <p className="text-xs font-medium mb-2" style={{ color: '#6b7280' }}>HEADING</p>
-            <p
-              className="text-3xl"
-              style={{ color: '#f0f0f0', fontFamily: '"Instrument Serif", serif', fontWeight: 400 }}
-            >
-              {kit.typography.heading}
-            </p>
+            <p className="text-xs font-medium mb-2 text-muted">HEADING</p>
+            <p className="text-3xl text-text font-serif font-normal">{kit.typography.heading}</p>
           </div>
           <div>
-            <p className="text-xs font-medium mb-2" style={{ color: '#6b7280' }}>BODY</p>
-            <p className="text-base" style={{ color: '#f0f0f0', fontFamily: '"Inter", sans-serif' }}>
-              {kit.typography.body}
-            </p>
+            <p className="text-xs font-medium mb-2 text-muted">BODY</p>
+            <p className="text-base text-text font-sans">{kit.typography.body}</p>
           </div>
         </div>
-        <p className="text-sm leading-relaxed" style={{ color: '#6b7280' }}>
-          {kit.typography.reasoning}
-        </p>
+        <p className="text-sm leading-relaxed text-muted">{kit.typography.reasoning}</p>
       </Section>
 
       {/* Taglines */}
@@ -136,12 +114,7 @@ export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props)
         <SectionTitle>Brand Taglines</SectionTitle>
         <div className="space-y-3">
           {kit.taglines.map((tagline, i) => (
-            <TaglineCard
-              key={i}
-              tagline={tagline}
-              index={i}
-              onCopy={(text) => onCopy(`Copied: "${text}"`)}
-            />
+            <TaglineCard key={i} tagline={tagline} index={i} onCopy={onCopy} />
           ))}
         </div>
       </Section>
@@ -151,32 +124,26 @@ export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props)
         <SectionTitle>Tone of Voice</SectionTitle>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div>
-            <p
-              className="text-sm font-semibold mb-3 flex items-center gap-2"
-              style={{ color: '#62C688' }}
-            >
+            <p className="text-sm font-semibold mb-3 flex items-center gap-2 text-green">
               <span>✓</span> DO
             </p>
             <ul className="space-y-2">
               {kit.toneOfVoice.dos.map((item, i) => (
-                <li key={i} className="text-sm flex gap-2" style={{ color: '#6b7280' }}>
-                  <span style={{ color: '#62C688' }}>•</span>
+                <li key={i} className="text-sm flex gap-2 text-muted">
+                  <span className="text-green">•</span>
                   {item}
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <p
-              className="text-sm font-semibold mb-3 flex items-center gap-2"
-              style={{ color: '#FF6B2B' }}
-            >
+            <p className="text-sm font-semibold mb-3 flex items-center gap-2 text-accent">
               <span>✕</span> DON'T
             </p>
             <ul className="space-y-2">
               {kit.toneOfVoice.donts.map((item, i) => (
-                <li key={i} className="text-sm flex gap-2" style={{ color: '#6b7280' }}>
-                  <span style={{ color: '#FF6B2B' }}>•</span>
+                <li key={i} className="text-sm flex gap-2 text-muted">
+                  <span className="text-accent">•</span>
                   {item}
                 </li>
               ))}
@@ -190,18 +157,11 @@ export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props)
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1">
             <SectionTitle>Social Media Bio</SectionTitle>
-            <p className="text-sm leading-relaxed" style={{ color: '#6b7280' }}>
-              {kit.socialBio}
-            </p>
+            <p className="text-sm leading-relaxed text-muted">{kit.socialBio}</p>
           </div>
           <button
             onClick={() => onCopy(kit.socialBio)}
-            className="shrink-0 text-xs px-3 py-1.5 rounded-lg font-medium mt-1 transition-colors duration-150"
-            style={{
-              background: 'rgba(255,107,43,0.15)',
-              color: '#FF6B2B',
-              border: '1px solid rgba(255,107,43,0.3)',
-            }}
+            className="shrink-0 text-xs px-3 py-1.5 rounded-lg font-medium mt-1 transition-colors duration-150 bg-accent/15 text-accent border border-accent/30"
             title="Copy bio"
           >
             Copy
@@ -218,33 +178,19 @@ export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props)
       >
         <button
           onClick={onRegenerate}
-          className="flex-1 py-3 rounded-xl text-sm font-semibold transition-all duration-150"
-          style={{
-            background: '#FF6B2B',
-            color: '#fff',
-          }}
+          className="flex-1 py-3 rounded-xl text-sm font-semibold transition-all duration-150 bg-accent text-white"
         >
           Regenerate
         </button>
         <button
           onClick={() => window.print()}
-          className="flex-1 py-3 rounded-xl text-sm font-semibold transition-colors duration-150"
-          style={{
-            background: 'rgba(255,255,255,0.06)',
-            color: '#f0f0f0',
-            border: '1px solid rgba(255,255,255,0.1)',
-          }}
+          className="flex-1 py-3 rounded-xl text-sm font-semibold transition-colors duration-150 bg-white/6 text-text border border-white/10"
         >
           Export as PDF
         </button>
         <button
           onClick={onStartOver}
-          className="flex-1 py-3 rounded-xl text-sm font-semibold transition-colors duration-150"
-          style={{
-            background: 'rgba(255,255,255,0.04)',
-            color: '#6b7280',
-            border: '1px solid rgba(255,255,255,0.08)',
-          }}
+          className="flex-1 py-3 rounded-xl text-sm font-semibold transition-colors duration-150 bg-white/4 text-muted border border-white/8"
         >
           Start Over
         </button>

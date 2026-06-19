@@ -30,7 +30,7 @@ export function SkeletonLoader() {
         <div className="grid grid-cols-5 gap-3">
           {[...Array(5)].map((_, i) => (
             <div key={i} className="flex flex-col gap-2">
-              <SkeletonBlock className="w-full aspect-square rounded-2xl" style={{ minHeight: 80 }} />
+              <SkeletonBlock className="w-full aspect-square rounded-2xl min-h-20" />
               <SkeletonBlock className="h-3 w-full" />
               <SkeletonBlock className="h-3 w-2/3 mx-auto" />
             </div>
