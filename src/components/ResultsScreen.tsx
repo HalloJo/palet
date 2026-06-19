@@ -1,13 +1,13 @@
-import { motion } from 'framer-motion'
-import type { BrandKit } from '../types/brand'
-import { ColorSwatch } from './ColorSwatch'
-import { TaglineCard } from './TaglineCard'
+import { motion } from "framer-motion";
+import type { BrandKit } from "../types/brand";
+import { ColorSwatch } from "./ColorSwatch";
+import { TaglineCard } from "./TaglineCard";
 
 interface Props {
-  kit: BrandKit
-  onCopy: (text: string) => void
-  onRegenerate: () => void
-  onStartOver: () => void
+  kit: BrandKit;
+  onCopy: (text: string) => void;
+  onRegenerate: () => void;
+  onStartOver: () => void;
 }
 
 const sectionVariants = {
@@ -17,9 +17,17 @@ const sectionVariants = {
     y: 0,
     transition: { delay: i * 0.1, duration: 0.4 },
   }),
-}
+};
 
-function Section({ children, index, className = '' }: { children: React.ReactNode; index: number; className?: string }) {
+function Section({
+  children,
+  index,
+  className = "",
+}: {
+  children: React.ReactNode;
+  index: number;
+  className?: string;
+}) {
   return (
     <motion.div
       custom={index}
@@ -30,7 +38,7 @@ function Section({ children, index, className = '' }: { children: React.ReactNod
     >
       {children}
     </motion.div>
-  )
+  );
 }
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
@@ -38,10 +46,15 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
     <h2 className="text-xl mb-4 text-text font-serif font-normal">
       {children}
     </h2>
-  )
+  );
 }
 
-export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props) {
+export function ResultsScreen({
+  kit,
+  onCopy,
+  onRegenerate,
+  onStartOver,
+}: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -63,7 +76,7 @@ export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props)
       <Section index={0}>
         <SectionTitle>Brand Personality</SectionTitle>
         <div className="flex flex-wrap gap-2 mb-4">
-          {kit.personality.traits.map(trait => (
+          {kit.personality.traits.map((trait) => (
             <span
               key={trait}
               className="px-3 py-1 rounded-full text-sm font-medium bg-accent/15 text-accent border border-accent/30"
@@ -72,7 +85,7 @@ export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props)
             </span>
           ))}
         </div>
-        <p className="text-sm leading-relaxed text-muted">
+        <p className="text-sm leading-relaxed text-white/60">
           {kit.personality.toneDescription}
         </p>
       </Section>
@@ -90,7 +103,9 @@ export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props)
             />
           ))}
         </div>
-        <p className="text-xs mt-3 text-muted">Click any swatch to copy the hex code</p>
+        <p className="text-xs mt-3 text-white/60">
+          Click any swatch to copy the hex code
+        </p>
       </Section>
 
       {/* Typography */}
@@ -99,14 +114,20 @@ export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props)
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-4">
           <div>
             <p className="text-xs font-medium mb-2 text-muted">HEADING</p>
-            <p className="text-3xl text-text font-serif font-normal">{kit.typography.heading}</p>
+            <p className="text-3xl tracking-tight text-text font-sans font-normal">
+              {kit.typography.heading}
+            </p>
           </div>
           <div>
             <p className="text-xs font-medium mb-2 text-muted">BODY</p>
-            <p className="text-base text-text font-sans">{kit.typography.body}</p>
+            <p className="text-base text-text font-sans">
+              {kit.typography.body}
+            </p>
           </div>
         </div>
-        <p className="text-sm leading-relaxed text-muted">{kit.typography.reasoning}</p>
+        <p className="text-sm leading-relaxed text-white/60">
+          {kit.typography.reasoning}
+        </p>
       </Section>
 
       {/* Taglines */}
@@ -129,7 +150,7 @@ export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props)
             </p>
             <ul className="space-y-2">
               {kit.toneOfVoice.dos.map((item, i) => (
-                <li key={i} className="text-sm flex gap-2 text-muted">
+                <li key={i} className="text-sm flex gap-2 text-white/60">
                   <span className="text-green">•</span>
                   {item}
                 </li>
@@ -137,13 +158,13 @@ export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props)
             </ul>
           </div>
           <div>
-            <p className="text-sm font-semibold mb-3 flex items-center gap-2 text-accent">
+            <p className="text-sm font-semibold mb-3 flex items-center gap-2 text-red-600">
               <span>✕</span> DON'T
             </p>
             <ul className="space-y-2">
               {kit.toneOfVoice.donts.map((item, i) => (
-                <li key={i} className="text-sm flex gap-2 text-muted">
-                  <span className="text-accent">•</span>
+                <li key={i} className="text-sm flex gap-2 text-white/60">
+                  <span className="text-red-600">•</span>
                   {item}
                 </li>
               ))}
@@ -157,7 +178,9 @@ export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props)
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1">
             <SectionTitle>Social Media Bio</SectionTitle>
-            <p className="text-sm leading-relaxed text-muted">{kit.socialBio}</p>
+            <p className="text-sm leading-relaxed text-white/60">
+              {kit.socialBio}
+            </p>
           </div>
           <button
             onClick={() => onCopy(kit.socialBio)}
@@ -178,7 +201,7 @@ export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props)
       >
         <button
           onClick={onRegenerate}
-          className="flex-1 py-3 rounded-xl text-sm font-semibold transition-all duration-150 bg-accent text-white"
+          className="flex-1 py-3 rounded-xl text-sm font-semibold transition-all duration-150 bg-accent text-black"
         >
           Regenerate
         </button>
@@ -190,11 +213,11 @@ export function ResultsScreen({ kit, onCopy, onRegenerate, onStartOver }: Props)
         </button>
         <button
           onClick={onStartOver}
-          className="flex-1 py-3 rounded-xl text-sm font-semibold transition-colors duration-150 bg-white/4 text-muted border border-white/8"
+          className="flex-1 py-3 rounded-xl text-sm font-semibold transition-colors duration-150 bg-white/4 text-white border border-white/8"
         >
           Start Over
         </button>
       </motion.div>
     </motion.div>
-  )
+  );
 }
