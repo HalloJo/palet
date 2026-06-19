@@ -1,7 +1,8 @@
+import React from 'react'
 import { motion } from 'framer-motion'
 
-function SkeletonBlock({ className }: { className?: string }) {
-  return <div className={`skeleton ${className ?? ''}`} />
+function SkeletonBlock({ className, style }: { className?: string; style?: React.CSSProperties }) {
+  return <div className={`skeleton ${className ?? ''}`} style={style} />
 }
 
 export function SkeletonLoader() {
