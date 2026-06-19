@@ -5,6 +5,7 @@ import { ResultsScreen } from './components/ResultsScreen'
 import { SkeletonLoader } from './components/SkeletonLoader'
 import { Toast } from './components/Toast'
 import { BackgroundAnimation } from './components/BackgroundAnimation'
+import { Navbar } from './components/Navbar'
 import { useGenerate } from './hooks/useGenerate'
 import { useToast } from './hooks/useToast'
 import { useClipboard } from './hooks/useClipboard'
@@ -32,6 +33,8 @@ function App() {
       <BackgroundAnimation />
 
       <div className="relative" style={{ zIndex: 1 }}>
+        <Navbar />
+
         <AnimatePresence mode="wait">
           {(status === 'idle' || status === 'error') && (
             <div key="input">
@@ -60,9 +63,6 @@ function App() {
           )}
           {status === 'loading' && (
             <div key="loading">
-              <header className="px-4 py-6">
-                <span className="text-2xl text-accent font-serif">Palet</span>
-              </header>
               <SkeletonLoader />
             </div>
           )}

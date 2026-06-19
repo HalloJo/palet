@@ -45,10 +45,6 @@ export function InputForm({ onSubmit, isLoading }: Props) {
       transition={{ duration: 0.4 }}
       className="min-h-screen flex flex-col px-4"
     >
-      <header className="py-6">
-        <span className="text-2xl text-green font-serif">Palet</span>
-      </header>
-
       <div className="flex-1 flex flex-col items-center justify-center max-w-2xl mx-auto w-full py-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
