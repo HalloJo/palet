@@ -56,7 +56,7 @@ export function InputForm({ onSubmit, isLoading }: Props) {
           transition={{ delay: 0.1, duration: 0.5 }}
           className="text-center mb-10"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl mb-4 leading-14 text-text font-serif font-normal">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl mb-4 leading-10 lg:leading-14 text-text font-serif font-normal">
             Turn your idea into a<br />
             <span className="text-green">brand identity</span> — instantly.
           </h1>
