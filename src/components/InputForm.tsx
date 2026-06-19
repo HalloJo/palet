@@ -43,7 +43,7 @@ export function InputForm({ onSubmit, isLoading }: Props) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -24 }}
       transition={{ duration: 0.4 }}
-      className="min-h-screen flex flex-col px-4"
+      className="h-full flex flex-col px-4"
     >
       <div className="flex-1 flex flex-col items-center justify-center max-w-2xl mx-auto w-full py-12">
         <motion.div
